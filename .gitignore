@@ -1,6 +1,5 @@
 *
 !*.c
-*main*
 _putchar.c
 !*.h
 !*.md
