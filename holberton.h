@@ -5,11 +5,13 @@
 
 typedef struct stp
 {
-	charp *p;
-	int (*f)(va_list, char*, int);
-};
+        char p;
+        int (*f)(va_list, char*, int);
+}s;
 
-
+int print_strings (va_list list, char* p, int g);
+int print_char (va_list list, char* p, int g);
+int print_integers (va_list list, char* p, int g);
 int _printf(const char *format, ...);
 
 #endif
