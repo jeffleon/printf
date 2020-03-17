@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == options[j].p)
 				{
 					k = options[j].f(args, buffer, bfc);
-					bfc += k, k = 0, i++;
+					bfc += k, i++;
 					if (k == -1)
 						return (-1);
 				}
