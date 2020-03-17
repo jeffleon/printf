@@ -33,6 +33,7 @@ int _printf(const char *format, ...)
 					bfc += k, i++;
 					if (k == -1)
 						return (-1);
+					break;
 				}
 			}
 		}
