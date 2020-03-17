@@ -14,7 +14,10 @@ int print_strings(va_list list, char *p, int g)
 	char *j = va_arg(list, char*);
 
 	if (j == NULL)
+	{
 		j = "(null)";
+		return(-1);
+	}
 	for (i = 0; j[i]; i++)
 	{
 		p[g + i] = j[i];
