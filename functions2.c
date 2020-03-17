@@ -10,8 +10,8 @@
 
 int print_integers(va_list list, char *p, int g)
 {
-	int j = va_arg(list, int), i = 0;
-	int aux = j, retorno = 0;
+	long int j = va_arg(list, int), i = 0;
+	long int aux = j, retorno = 0;
 
 	if (j < 0)
 	{
