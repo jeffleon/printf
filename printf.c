@@ -36,11 +36,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
+		if (j == 10)
+		buffer[bfc] = 37, bfc++, buffer[bfc] = format[i];
 		}
 		else
 		{
-			buffer[bfc] = format[i];
-			bfc++;
+			buffer[bfc] = format[i], bfc++;
 		}
 	}
 	buffer[bfc] = '\0';
