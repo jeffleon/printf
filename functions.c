@@ -67,7 +67,7 @@ int print_opc(va_list list, char *p, int g)
 
 int print_bin(va_list list, char *p, int g)
 {
-	int var = va_arg(list, int);
+	unsigned int var = va_arg(list, int);
 	int count = 0;
 	int j = 0;
 	char *numero = malloc(100);
