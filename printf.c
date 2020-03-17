@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, k = 0, bfc = 0;
+	int i = 0, j = 0, k = 0, *bfc = 0;
 	char *buffer = malloc(2048);
 	va_list args;
 	s options[] = {
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == options[j].p)
 				{
 					k = options[j].f(args, buffer, bfc);
-					bfc += k, k = 0, i++;
+					i++;
 					if (k == -1)
 						return (-1);
 				}
@@ -38,11 +38,11 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			buffer[bfc] = format[i];
-			bfc++;
+			buffer[*bfc] = format[i];
+			*bfc+=1;
 		}
 	}
 	buffer[bfc] = '\0';
-	write(1, buffer, bfc);
-	return (va_end(args), free(buffer), bfc);
+	write(1, buffer, *bfc);
+	return (bfc , free(buffer), va_end(buffer));
 }

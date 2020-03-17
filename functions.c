@@ -8,7 +8,7 @@
  * Return: integer or counter
  */
 
-int print_strings(va_list list, char *p, int g)
+int print_strings(va_list list, char *p, int *g)
 {
 	int i = 0;
 	char *j = va_arg(list, char*);
@@ -22,9 +22,9 @@ int print_strings(va_list list, char *p, int g)
 	{
 		p[g + i] = j[i];
 	}
-	return (i);
+	*g+=i;
+	return (0);
 }
-
 /**
  * print_char - print chars
  * @list: list of arguments
@@ -33,12 +33,13 @@ int print_strings(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_char(va_list list, char *p, int g)
+int print_char(va_list list, char *p, int *g)
 {
 	char j = va_arg(list, int);
 
 	p[g] = j;
-	return (1);
+   	*g+=1;
+	return (0);
 }
 
 
@@ -50,11 +51,12 @@ int print_char(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_opc(va_list list, char *p, int g)
+int print_opc(va_list list, char *p, int *g)
 {
 	(void)list;
 	p[g] = 37;
-	return (1);
+	*g+=1;
+	return (0);
 }
 
 /**
@@ -65,7 +67,7 @@ int print_opc(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_bin(va_list list, char *p, int g)
+int print_bin(va_list list, char *p, int *g)
 {
 	int var = va_arg(list, int);
 	int count = 0;
@@ -88,7 +90,8 @@ int print_bin(va_list list, char *p, int g)
 		p[g + j] = numero[count];
 	}
 	free(numero);
-	return (j);
+	*g+=j;
+	return (0);
 }
 
 /**
@@ -99,7 +102,7 @@ int print_bin(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_octal(va_list list, char *p, int g)
+int print_octal(va_list list, char *p, int *g)
 {
 	unsigned int var = va_arg(list, unsigned int);
 	int count = 0;
@@ -121,6 +124,7 @@ int print_octal(va_list list, char *p, int g)
 	{
 		p[g + j] = numero[count];
 	}
+	*g+=j;
 	free(numero);
-	return (j);
+	return (0);
 }

@@ -8,7 +8,7 @@
  * Return: integer or counter
  */
 
-int print_integers(va_list list, char *p, int g)
+int print_integers(va_list list, char *p, int *g)
 {
 	int j = va_arg(list, int), i = 0;
 	int aux = j, retorno = 0;
@@ -26,15 +26,15 @@ int print_integers(va_list list, char *p, int g)
 		i++;
 	}
 	retorno = i;
-	while (j / 10 > 0)
+	while (i > 0)
 	{
 		p[g + i] = j % 10 + '0';
 		j = j / 10;
 		i--;
 	}
-	p[g + i] = j % 10 + '0';
 	retorno++;
-	return (retorno);
+	*g+=retorno;
+	return (0);
 }
 
 /**
@@ -45,7 +45,7 @@ int print_integers(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_unintegers(va_list list, char *p, int g)
+int print_unintegers(va_list list, char *p, int *g)
 {
 	unsigned int j = va_arg(list, int);
 	int i = 0;
@@ -57,15 +57,15 @@ int print_unintegers(va_list list, char *p, int g)
 		i++;
 	}
 	retorno = i;
-	while (j / 10 > 0)
+	while (i > 0)
 	{
 		p[g + i] = j % 10 + '0';
 		j = j / 10;
 		i--;
 	}
-	p[g + i] = j % 10 + '0';
 	retorno++;
-	return (retorno);
+	*g+=retorno;
+	return (0);
 }
 
 /**
@@ -76,7 +76,7 @@ int print_unintegers(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_hexa(va_list list, char *p, int g)
+int print_hexa(va_list list, char *p, int *g)
 {
 	unsigned int var = va_arg(list, unsigned int);
 	int count = 0;
@@ -111,7 +111,8 @@ int print_hexa(va_list list, char *p, int g)
 		p[g + j] = numero[count];
 	}
 	free(numero);
-	return (j);
+	*g+=j;
+	return (0);
 }
 
 /**
@@ -122,7 +123,7 @@ int print_hexa(va_list list, char *p, int g)
  * Return: integer or counter
  */
 
-int print_hexaM(va_list list, char *p, int g)
+int print_hexaM(va_list list, char *p, int *g)
 {
 	unsigned int var = va_arg(list, unsigned int);
 	int count = 0;
@@ -157,5 +158,6 @@ int print_hexaM(va_list list, char *p, int g)
 		p[g + j] = numero[count];
 	}
 	free(numero);
-	return (j);
+	*g+=j;
+	return (0);
 }
