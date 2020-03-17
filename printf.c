@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(args, format);
-
 	if (format == NULL)
 		return (0);
 
@@ -46,6 +45,7 @@ int _printf(const char *format, ...)
 	}
 	buffer[bfc] = '\0';
 	write(1, buffer, bfc);
+	va_end(args);
 	free(buffer);
 	return (bfc);
 }
