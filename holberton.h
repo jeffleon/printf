@@ -17,6 +17,10 @@ typedef struct stp
 	int (*f)(va_list, char *, int);
 } s;
 
+char *rev_string(char *s);
+char *rot13(char *s);
+int print_rev(va_list list, char *p, int g);
+int print_root13(va_list list, char *p, int g);
 int print_strings(va_list list, char *p, int g);
 int print_char(va_list list, char *p, int g);
 int print_integers(va_list list, char *p, int g);
