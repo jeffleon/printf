@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		{'%', print_opc}, {'s', print_strings}, {'c', print_char},
 		{'i', print_integers}, {'d', print_integers},
 		{'u', print_unintegers}, {'b', print_bin}, {'x', print_hexa},
-		{'X', print_hexaM}, {'o', print_octal}
+		{'X', print_hexaM}, {'o', print_octal},
 		{'r', print_rev}, {'R', print_root13}};
 
 	va_start(args, format);

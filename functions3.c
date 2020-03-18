@@ -12,10 +12,11 @@ int print_rev(va_list list, char *p, int g)
 {
 	int i = 0;
 	char *j = va_arg(list, char*);
-
-	j = rev_string(j);
-	for (i = 0; j[i]; i++)
-		p[g + i] = j[i];
+	char *f = malloc(sizeof(char) * 10);
+	write(1, "voyaqui",8);
+	f = rev_string(j);
+	for (i = 0; f[i]; i++)
+		p[g + i] = f[i];
 	return (i);
 }
 
@@ -30,9 +31,8 @@ int print_rev(va_list list, char *p, int g)
 int print_root13(va_list list, char *p, int g)
 {
 	int i = 0;
-	char *j = va_arg(list, char*);
-
-	j = rot13(j);
+	char *j = rot13(va_arg(list, char*));
+	write(1,"voy aqui",9);
 	for (i = 0; j[i]; i++)
 		p[g + i] = j[i];
 	return (i);
