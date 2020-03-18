@@ -15,7 +15,8 @@ int _printf(const char *format, ...)
 		{'%', print_opc}, {'s', print_strings}, {'c', print_char},
 		{'i', print_integers}, {'d', print_integers},
 		{'u', print_unintegers}, {'b', print_bin}, {'x', print_hexa},
-		{'X', print_hexaM}, {'o', print_octal}};
+		{'X', print_hexaM}, {'o', print_octal},
+		{'r', print_rev}, {'R', print_root13}};
 
 	va_start(args, format);
 	if (!format || !buffer || (format[0] == '%' && format[1] == '\0'))
@@ -25,7 +26,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 10; j++)
+			for (j = 0; j < 12; j++)
 			{
 				if (format[i + 1] == options[j].p)
 				{
@@ -36,13 +37,11 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-		if (j == 10)
+		if (j == 13)
 		buffer[bfc] = 37, bfc++, buffer[bfc] = format[i];
 		}
 		else
-		{
 			buffer[bfc] = format[i], bfc++;
-		}
 	}
 	buffer[bfc] = '\0';
 	write(1, buffer, bfc);
